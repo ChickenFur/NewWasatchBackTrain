@@ -1,0 +1,75 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Wasatch Back Train - Convenient Efficient Sustainable" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="relative h-[400px]">
+			<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/images/traintracks.jpg');">
+				<div class="absolute inset-0 bg-black bg-opacity-50"></div>
+			</div>
+			<nav class="container mx-auto px-4 py-6 relative">
+				<div class="flex justify-between items-center">
+					<a href="/" class="text-2xl font-bold text-white">Wasatch Back Train</a>
+					<ul class="flex space-x-6">
+						<li><a href="/" class="text-white hover:text-blue-300">Home</a></li>
+						<li><a href="/why" class="text-white hover:text-blue-300">Why</a></li>
+						<li><a href="/blog" class="text-white hover:text-blue-300">Blog</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="relative container mx-auto px-4 h-full flex items-center justify-center">
+				<div class="text-center text-white space-y-4">
+					<h2 class="text-4xl font-bold tracking-wider">Convenient</h2>
+					<h2 class="text-4xl font-bold tracking-wider">Efficient</h2>
+					<h2 class="text-4xl font-bold tracking-wider">Sustainable</h2>
+				</div>
+			</div>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer class="bg-gray-900 text-white mt-12">
+			<div class="container mx-auto px-4 py-8">
+				<div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+					<div>
+						About: I created this website to start a conversation. My name is Christen Thompson a resident of Heber City who wants to see less traffic, cleaner air and less paved roads covering up our valley and state. I am excited about the future we can create for ourselves and future residents. Contact me at christen.thompson@gmail.com
+					</div>
+				</div>
+				<div class="text-center mt-8 pt-8 border-t border-gray-800">
+					<p>&copy; {new Date().getFullYear()} Wasatch Back Train. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #f6f6f6;
+	}
+</style>

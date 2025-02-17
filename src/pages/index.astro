@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const latestPosts = posts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<Layout title="Wasatch Back Train - Connecting Utah's Communities">
+	<div class="container mx-auto px-4 py-12">
+		<div class="max-w-4xl mx-auto">
+			<h1 class="text-4xl font-bold mb-8 text-blue-900">Wasatch Back Train Initiative</h1>
+			
+			<div class="prose prose-lg max-w-none">
+				<p class="mb-6">
+					We propose a train line connecting Front Runner in Orem/Provo or from the Provo Airport to Heber, Park City, down Parleys and looping back to Front Runner at the reimagined <a href="https://riograndeplansaltlakecity.org/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">Rio Grande Station</a> in Salt Lake City. This initiative aims to:
+				</p>
+				
+				<ul class="list-disc pl-6 mb-8">
+					<li>Preserve open spaces like the north fields</li>
+					<li>Reduce the need for new roads and traffic</li>
+					<li>Create a sustainable future for current and future residents</li>
+				</ul>
+
+				<h2 class="text-2xl font-bold mb-4 text-blue-800">Take Action</h2>
+				
+				<div class="space-y-6">
+					<div class="bg-green-50 p-6 rounded-lg">
+						<h3 class="font-bold mb-2">Contact Your Representative</h3>
+						<p class="mb-3">Make your voice heard by reaching out to your state representative.</p>
+						<a href="https://le.utah.gov/GIS/findDistrict.jsp" 
+							class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors" 
+							target="_blank" 
+							rel="noopener noreferrer">
+							Find Your Representative
+						</a>
+					</div>
+
+					<div class="bg-blue-50 p-6 rounded-lg">
+						<h3 class="font-bold mb-2">Sign the Petition</h3>
+						<p class="mb-3">Support this initiative by signing our petition.</p>
+						<a href="https://chng.it/CPMzGKvYKC" 
+							class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" 
+							target="_blank" 
+							rel="noopener noreferrer">
+							Sign the Petition
+						</a>
+					</div>
+				</div>
+
+				<div class="mt-12">
+					<h2 class="text-2xl font-bold mb-6 text-blue-800">Latest Updates</h2>
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+						{latestPosts.map((post) => (
+							<article class="bg-white rounded-lg shadow-md overflow-hidden">
+								{post.data.image && (
+									<img 
+										src={post.data.image} 
+										alt={post.data.title}
+										class="w-full h-48 object-cover"
+									/>
+								)}
+								<div class="p-4">
+									<h3 class="font-bold text-lg mb-2">
+										<a href={`/blog/${post.slug}`} class="hover:text-blue-600">
+											{post.data.title}
+										</a>
+									</h3>
+									<p class="text-gray-600 text-sm mb-2">
+										{new Date(post.data.pubDate).toLocaleDateString()}
+									</p>
+									<p class="text-gray-700 text-sm mb-3">{post.data.description}</p>
+									<a href={`/blog/${post.slug}`} 
+										class="text-blue-600 hover:text-blue-800 text-sm">
+										Read More →
+									</a>
+								</div>
+							</article>
+						))}
+					</div>
+				</div>
+
+				<div class="bg-white p-8 rounded-lg shadow-lg mt-12">
+					<h2 class="text-2xl font-bold mb-6 text-blue-800">Proposed Routes</h2>
+					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+						<div>
+							<h3 class="font-bold text-xl mb-4">Surface</h3>
+							<img src="/images/track.png" alt="Surface Route Map" class="w-[50px] h-[60px] object-cover rounded-lg mb-4 shadow-md hover:shadow-xl transition-shadow">
+							<a href="https://www.google.com/maps/d/u/0/edit?mid=1mr4dVI724h9bVAg6QsWq2RrmKK6hiuE&usp=sharing" 
+								class="inline-block bg-blue-600 text-white px-2 py-1 rounded text-xs hover:bg-blue-700 transition-colors" 
+								target="_blank" 
+								rel="noopener noreferrer">
+								View Map →
+							</a>
+						</div>
+						
+						<div>
+							<h3 class="font-bold text-xl mb-4">Underground</h3>
+							<img src="/images/underground.png" alt="Underground Route Map" class="w-[50px] h-[60px] object-cover rounded-lg mb-4 shadow-md hover:shadow-xl transition-shadow">
+							<a href="https://www.google.com/maps/d/u/0/edit?mid=1zOfH0sF8q3uHjuxpilfC3wlpoKpbdt0&usp=sharing" 
+								class="inline-block bg-blue-600 text-white px-2 py-1 rounded text-xs hover:bg-blue-700 transition-colors" 
+								target="_blank" 
+								rel="noopener noreferrer">
+								View Map →
+							</a>
+						</div>
+						
+						<div>
+							<h3 class="font-bold text-xl mb-4">Mixed</h3>
+							<img src="/images/mixed.png" alt="Mixed Route Map" class="w-[50px] h-[60px] object-cover rounded-lg mb-4 shadow-md hover:shadow-xl transition-shadow">
+							<a href="https://www.google.com/maps/d/u/0/edit?mid=14hZ3tnqMcfdv5MEzMPI9_fTUHorrsQ0&usp=sharing" 
+								class="inline-block bg-blue-600 text-white px-2 py-1 rounded text-xs hover:bg-blue-700 transition-colors" 
+								target="_blank" 
+								rel="noopener noreferrer">
+								View Map →
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>
