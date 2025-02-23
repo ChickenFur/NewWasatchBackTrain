@@ -11,6 +11,7 @@ We're excited to share a new way for supporters to help spread awareness about t
 ## What's in the Flyer?
 
 The flyer contains key information about:
+
 - The proposed train route connecting our communities
 - Environmental and safety benefits
 - Economic advantages
@@ -18,8 +19,9 @@ The flyer contains key information about:
 
 ## How You Can Help
 
-1. **Download the Flyer**: <a href="/flyer-w-qr.pdf" class="text-blue-600 hover:text-blue-800">Get it here</a>
+1. **Download the Flyer**: <a href="/new-flyer.pdf" class="text-blue-600 hover:text-blue-800">Get it here</a>
 2. **Print and Share**: Print copies and share them at:
+
    - Local businesses
    - Community centers
    - Neighborhood meetings
@@ -38,6 +40,7 @@ The flyer contains key information about:
 ## Remember
 
 When distributing flyers, please:
+
 - Obtain permission before posting in businesses or private properties
 - Follow local regulations regarding flyer distribution
 - Be respectful of property and the environment
