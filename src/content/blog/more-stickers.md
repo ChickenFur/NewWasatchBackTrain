@@ -2,7 +2,7 @@
 title: "New Stickers are here!"
 description: "You can order your own stickers to spread the word about the train!"
 pubDate: 2025-02-23
-image: "/images/newstickers.png"
+image: "/images/newstickers.jpg"
 author: "Wasatch Back Train Initiative"
 ---
 
